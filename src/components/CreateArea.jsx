@@ -42,7 +42,7 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form className="create-note">
+      <form className="create-note" onSubmit={submitNote}>
         { isFocus && (
             <input
               name="title"
@@ -56,11 +56,12 @@ function CreateArea(props) {
           onFocus={handleFocus}
           onChange={handleChange}
           value={note.content}
-          placeholder="Take a note..."
+          placeholder="Say something..."
           rows= {isFocus ? 3 : 1}
+          maxlength="500"
         />
         <Zoom in={isFocus}>
-          <Fab onClick={submitNote}>
+          <Fab type="submit">
             <AddIcon />
           </Fab>
         </Zoom>
